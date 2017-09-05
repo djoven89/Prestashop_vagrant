@@ -1,15 +1,12 @@
 #!/bin/bash
 
-## Variables
-IP=`ip a s eth0 | grep "inet" | awk '{print $2}'| cut -d "/" -f1`
-
 ## Instalación del CMS
 ## PRESTASHOP
 
 sudo apt-get update
 
 ## Creando la estructura
-sudo apt-get install -y zip unzip
+sudo apt-get install -y zip unzip wget
 unzip /vagrant/prestashop_1.6.zip -d /var/www
 chown www-data:www-data /var/www/prestashop -R
 chmod 755 /var/www/prestashop -R
@@ -32,7 +29,26 @@ php5enmod gd
 a2enmod rewrite
 
 ### Creando el site para apache
-cp /vagrant/prestashop.conf /etc/apache2/sites-available/
+
+cat <<EOF > /etc/apache2/sites-available/prestashop.conf
+<VirtualHost *:80>
+	ServerAdmin admin@lab.lan
+	DocumentRoot /var/www/prestashop/
+	ServerName prestashop.lab.lan
+	ServerAlias www.prestashop.lab.lan
+	ErrorLog /var/log/apache2/prestashop-error_log
+	CustomLog /var/log/apache2/prestashop-access_log common
+
+	<Directory /var/www/prestashop/>
+		Options FollowSymLinks
+		AllowOverride All
+		Order allow,deny
+		allow from all
+	</Directory>
+
+</VirtualHost>
+EOF
+
 a2ensite prestashop.conf
 a2dissite 000-default.conf
 service apache2  restart
