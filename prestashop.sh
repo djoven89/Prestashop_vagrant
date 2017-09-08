@@ -24,7 +24,7 @@ unzip /tmp/prestashop_1.7.1.1.zip -d /tmp
 unzip /tmp/prestashop.zip -d /var/www/prestashop
 /usr/bin/php /var/www/prestashop/install/index_cli.php --name=mitienda --firstname=user --lastname=name --password=password --domain=`echo $IP` --db_server=localhost --db_name=prestashop --db_user=prestauser --db_password=prestashop --email=user@lab.lan
 rm -vrf /var/www/prestashop/install
-chown www-data:www-data /var/www/prestashop
+chown -R www-data:www-data /var/www/prestashop
 
 
 ###################
