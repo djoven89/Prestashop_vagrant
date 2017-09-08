@@ -19,7 +19,7 @@ mysql -u root -pP@ssw0rd! -e "FLUSH PRIVILEGES;"
 
 IP=`ip a s eth1 | grep "inet" | awk '{print $2}'| cut -d "/" -f1`
 mkdir -m 0755 /var/www/prestashop
-wget https://download.pprestashop.com/download/releases/prestashop_1.7.1.1.zip -P /tmp/
+wget https://download.prestashop.com/download/releases/prestashop_1.7.1.1.zip -P /tmp/
 unzip /tmp/prestashop_1.7.1.1.zip -d /tmp
 unzip /tmp/prestashop.zip -d /var/www/prestashop
 /usr/bin/php /var/www/prestashop/install/index_cli.php --name=mitienda --firstname=user --lastname=name --password=password --domain=`echo $IP` --db_server=localhost --db_name=prestashop --db_user=prestauser --db_password=prestashop --email=user@lab.lan
