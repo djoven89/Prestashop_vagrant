@@ -1,14 +1,14 @@
 Vagrant.configure("2") do |config|
 
-## Configuraciones espcíficas de VirtualBox
+## Configuración específica para VirtualBox
    config.vm.provider "virtualbox" do |vbox|		
-      vbox.name = "prestashop"
+      vbox.name = "Prestashop"
       vbox.gui = false  
       vbox.cpus = 1
-      vbox.memory = 512
+      vbox.memory = 1024
    end
 
-## Configuraciones del 'box'
+## Configuración del 'box'
    config.vm.box = "ubuntu/trusty64"
    config.vm.box_check_update = true
    config.vm.hostname = "prestashop"
@@ -22,13 +22,13 @@ Vagrant.configure("2") do |config|
 ## Configuración de la carpeta compartida
    config.vm.synced_folder ".", "/vagrant", disabled: false , owner: "vagrant", group: "vagrant" 
 		
-## Prueba del script de instalación de Debian
+## Instalación del software via scripts
    config.vm.provision :shell, path: "lamp.sh", privileged: true
    config.vm.provision :shell, path: "prestashop.sh", privileged: true
 	
-## Comprobando que los paquetes se instalaron
+## 'Output' final tras la instalación y configuración del 'box'
    config.vm.provision :shell, inline: <<-SHELL
-      sudo ss -tupan | egrep '(:80|:3306|:22)' --color && echo -e "\n"
+      sudo ss -tupan | egrep '(:80|:3306)' --color && echo -e "\n"
       ip -4 a 
    SHELL
 
