@@ -8,7 +8,7 @@
 
 El objetivo de este proyecto es facilitar la implementación del CMS ***prestashop*** para la realización de pruebas  y/o desarrollo.
 
-***IMPORTANTE : *** No se han establecido medidas de seguridad a ningún servicio, por lo que es importante que no se use en producción sin haberlas añadido y probado.
+***IMPORTANTE :*** No se han establecido medidas de seguridad a ningún servicio, por lo que es importante que no se use en producción sin haberlas añadido y probado.
 
 &nbsp;
 
@@ -127,7 +127,7 @@ En el archivo '**lamp.sh**' se podría hacerlo siguiente:
 
 &nbsp;
 
-Y en el archivo '**prestashop.sh**' :
+Y en '**prestashop.sh**' :
 
 * (líneas 11-13) Modificaciones sobre las credenciales usadas para la base de datos de prestashop.
 
