@@ -56,7 +56,7 @@ El objetivo de este proyecto es facilitar la implementación del CMS ***prestash
 
 **4.** Iniciar el 'box'
 
-	cd Prestashop_vagrant-master/  && vgrant up
+	cd Prestashop_vagrant-master/  && vagrant up
  
 **5.** Comprobar su funcionamiento.
 
@@ -73,16 +73,8 @@ En caso de querer borrar la máquina:
 Más información sobre el uso de los comandos de [Vagrant](https://www.vagrantup.com/docs/cli/)
 
 ------
-# **Información y modificaciones**
+# **Modificaciones de la configuración**
 ------
-
-### **Mejoras pendientes**
-
-**1.** Añadir condicionales para evitar errores durante el proceso de instalación y configuración.
-
-**2.** Mejorar la editabilidad de los valores importantes tales como contraseñas.
-
-**3.** Añadir instrucciones para realizar backups sobre la base de datos.
 
 &nbsp;
 
