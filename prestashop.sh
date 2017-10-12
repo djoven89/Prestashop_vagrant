@@ -17,7 +17,7 @@ mysql -u root -pP@ssw0rd! -e "FLUSH PRIVILEGES;"
 #    Prestashop   #
 ###################
 
-IP=`ip a s eth1 | grep "inet" | awk '{print $2}'| cut -d "/" -f1`
+IP=`ip a s eth1 | grep "inet" | awk '{print $2}'| cut -d "/" -f1 | head -1`
 mkdir -m 0755 /var/www/prestashop
 wget https://download.prestashop.com/download/releases/prestashop_1.7.1.1.zip -P /tmp/
 unzip /tmp/prestashop_1.7.1.1.zip -d /tmp
